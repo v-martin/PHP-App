@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            padding: 1%;
+            background-color: teal;
+            color: #FFFFFF;
+            font-family: fantasy;
+            text-align: center;
+
+        }
+        .main-table{
+            border-collapse: separate;
+            border-spacing: 0em;
+            margin: 0 5%;
+            max-height: 500px;
+        }
+        main{
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .graph {
+            margin-top: 20px;
+        }
+        .graph-shape{
+            fill: teal;
+        }
+        .graph-axle-line{
+            stroke:black;
+        }
+        .convex-button{
+            background-color:teal;
+            border: none;
+            color: white;
+            padding: 5px 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+        }
+
+        .convex-button:hover {
+        background-color:white;
+        color: teal;
+        }
+
+        .form-title{
+            margin: 7% 0;
+        }
+        .r-input{
+            background-color:teal;
+            border: 1px solid transparent;
+            color: white;
+            padding: 3px 7px;
+        }
+        .r-input:hover, .r-input.active{
+            background-color:white;
+            border: 1px solid teal;
+            color: teal;
+            padding: 3px 7px;
+
+        }
+        #y-data{
+            width: 100%;
+            padding: 1px 2px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        
+        }
+        .form {
+            margin-top: -200px;
+        }
+        .header-table th {
+            background-color:teal;
+            border: 1px solid transparent;
+            color: white;
+            padding: 3px 7px;
+        }
+        #result {
+            overflow-y: scroll;
+            height: 505px;
+        }
+        #error{
+            background-color: azure;
+        }
+        </style>
+</head>
+<body>
+<header class="header">
+    <p>Martynov Vsevolod Vladimirovich  Group P32312 Variant 3312</p>
+</header>
+<main class="main">
+    <table class="main-table" cellspacing="5" width="100%">
+        <tr>
+            <td width="50%">
+                <svg class="graph" viewBox="0 0 500 500" maxwidth="250" maxheight="250">
+                     <!-- circle -->
+                     <path class="graph-shape" d="M 150 50 A 100 100 0 0 1 250 150 L 150 150 Z"/>
+
+                    <!-- triangle -->
+                    <polygon class="graph-shape" points="150,50 150,150 50,150"/>
+
+                    <!-- rectangle -->
+                    <polygon class="graph-shape" points="150,150 50,150 50,250 150,250"/>
+
+                    <!-- axles -->
+                    <text class="graph-axle-text" x="290" y="140">x</text>
+                    <line class="graph-axle-line" x1="0" x2="295" y1="150" y2="150"/>
+                    <polygon class="graph-axle-arrow" points="299,150 290,155 290,145"/>
+
+                    <text class="graph-axle-text" x="160" y="10">y</text>
+                    <line class="graph-axle-line" x1="150" x2="150" y1="5" y2="300"/>
+                    <polygon class="graph-axle-arrow" points="150,1 145,10 155,10"/>
+
+                    <!-- points -->
+                    <line class="graph-point" x1="50" x2="50" y1="145" y2="155"/>
+                    <line class="graph-point" x1="100" x2="100" y1="145" y2="155"/>
+                    <line class="graph-point" x1="200" x2="200" y1="145" y2="155"/>
+                    <line class="graph-point" x1="250" x2="250" y1="145" y2="155"/>
+
+                    <line class="graph-point" x1="145" x2="155" y1="250" y2="250"/>
+                    <line class="graph-point" x1="145" x2="155" y1="200" y2="200"/>
+                    <line class="graph-point" x1="145" x2="155" y1="100" y2="100"/>
+                    <line class="graph-point" x1="145" x2="155" y1="50" y2="50"/>
+
+                    <!-- labels -->
+                    <text class="graph-label r-whole-neg" text-anchor="middle" x="50" y="140">-R</text>
+                    <text class="graph-label r-half-neg" text-anchor="middle" x="100" y="140">-R/2</text>
+                    <text class="graph-label r-half-pos" text-anchor="middle" x="200" y="140">R/2</text>
+                    <text class="graph-label r-whole-pos" text-anchor="middle" x="250" y="140">R</text>
+
+                    <text class="graph-label r-whole-neg" text-anchor="start" x="160" y="255">-R</text>
+                    <text class="graph-label r-half-neg" text-anchor="start" x="160" y="205">-R/2</text>
+                    <text class="graph-label r-half-pos" text-anchor="start" x="160" y="105">R/2</text>
+                    <text class="graph-label r-whole-pos" text-anchor="start" x="160" y="55">R</text>
+
+                                
+
+
+                </svg>
+                <form class="form" method="POST">
+                    <table>
+                      <tr>
+                        <td>
+                            <h4>X value:</h4>
+                                <select class="x-select">
+                                <option value="-2">-2</option>
+                                <option value="-1.5">-1.5</option>
+                                <option value="-1">-1</option>
+                                <option value="-0.5">-0.5</option>
+                                <option value="0">0</option>
+                                <option value="0.5">0.5</option>
+                                <option value="1">1</option>
+                                <option value="1.5">1.5</option>
+                                <option value="2">2</option>
+                                </select>
+                              <h4>R value:</h4>
+                              <label>
+                                  <input class="r-input" type="button" value="1">
+                              </label>
+                              <label>
+                                  <input class="r-input" type="button" value="2">
+                              </label>
+                              <label>
+                                  <input class="r-input" type="button" value="3">
+                              </label>
+                              <label>
+                                  <input class="r-input" type="button" value="4">
+                              </label>
+                              <label>
+                                  <input class="r-input" type="button" value="5">
+                              </label>
+                              <br>
+
+                              <label for="" style="display: flex">
+                              <h4 class="form-title">Y value:</h4>
+                              <input maxlength="10"
+                                  type="text"
+                                  placeholder="In range (-3:3)"
+                                  id="y-data"
+                              />
+                              </label>
+                          </td>
+                      </tr>
+          
+                      <tr>
+                        <td>
+                          <input class="convex-button" id="submit-button" type="submit" value="Submit">
+                          <input class="convex-button" id="clear-form-button" type="button" value="Clear form">
+                          <input class="convex-button" id="clear-table-button" type="button" value="Clear table">
+                        </td>
+                      </tr>
+
+                      <tr id="error">
+                      </tr>
+                    </table>
+                  </form>
+            </td>
+            <td rowspan="2">
+                <table class="result-table">
+                  <thead>
+                  <tr class="header-table">
+                    <th>X value</th>
+                    <th>Y value</th>
+                    <th>R value</th>
+                    <th>Area hit</th>
+                    <th>Current time</th>
+                    <th>Execution time</th>
+                  </tr>
+                  </thead>
+                  <tbody id="result" rowspan="6"></tbody>
+                </table>
+            </td>
+        </tr>
+        </table>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
